@@ -47,7 +47,7 @@ function displayData({ author, title, titleShort, publisher, issued, accessed, U
 	let string = "";
 	if (author) string += `${author}. `;
 	if (title) string += `"${title}" `;
-	if (titleShort) string += `${titleShort}.`;
+	if (titleShort) string += `${titleShort}. `;
 	else string += `. `;
 	if (publisher) string += ` ${publisher}, `;
 	if (issued) string += `${issued}. `;
