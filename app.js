@@ -41,7 +41,7 @@ function JSONTOMLA7(data) {
  * @return {void}
  */
 function displayData({ author, title, titleShort, publisher, issued, accessed, URL }) {
-	let data = document.getElementById("Citation");
+	let data = document.getElementById("citation");
 	issued = dateToString(issued);
 	accessed = dateToString(accessed);
 	let string = "";
@@ -53,7 +53,7 @@ function displayData({ author, title, titleShort, publisher, issued, accessed, U
 	if (issued) string += `${issued}. `;
 	if (accessed) string += `Web ${accessed}. `;
 	if (URL) string += `\n<${URL}>`;
-	data.innerText = string;
+	data.value = string;
 }
 
 /*
@@ -86,3 +86,10 @@ function handleClick(event) {
 }
 
 document.getElementById("btn").addEventListener("click", handleClick);
+
+document.getElementById("copy").addEventListener("click", () => {
+	/* document.getElementById('copyArea').select();
+    document.execCommand('copy'); */
+	let copyArea = document.getElementById("citation");
+	navigator.clipboard.writeText(copyArea.value);
+});
