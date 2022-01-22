@@ -1,4 +1,4 @@
-@import url("https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Nunito&family=Patrick+Hand&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Nunito&family=Rubik&display=swap");
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
@@ -18,8 +18,8 @@ input {
 }
 
 textarea {
-	font-family: "Patrick Hand", cursive;
-	@apply border-2 rounded-xl resize-none w-full mb-2 px-4 py-2 text-lg shadow-lg min-h-min
+	font-family: "Rubik", sans-serif;
+	@apply border-2 rounded-xl resize-none w-full mb-2 px-4 py-2 text-base shadow-lg h-28
 	outline-none bg-white hover:scale-105 transition-transform focus:scale-90 origin-bottom;
 }
 
@@ -32,7 +32,7 @@ div.input-container {
 }
 
 div.copy-container {
-	@apply mx-auto w-5/12 flex justify-center flex-col mb-5;
+	@apply mx-auto w-7/12 flex justify-center flex-col mb-5;
 }
 
 #copy {
