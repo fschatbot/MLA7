@@ -6,7 +6,7 @@ I used too use [citationmachine](http://citationmachine.net/) to generate my MLA
 
 ### Where can I view a live demo of my site
 
-You can view the demo at my [github page](https://www.fschatbot.github.io/MLA7)! I plan to add CSS and a simple config machine later on.
+You can view the demo at my [github page](https://fschatbot.github.io/MLA7/)! I plan to add CSS and a simple config machine later on.
 
 ### How I Generate my own Citation
 
