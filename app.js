@@ -94,6 +94,8 @@ function handleClick(event) {
 	const url = document.getElementById("url").value;
 	// Check if the URL is valid using regex
 	if (url.length == 0) return;
+	// Show a loading text
+	ShowText("Loading...");
 	// Made the request and handle it
 	fetchData(url);
 }
