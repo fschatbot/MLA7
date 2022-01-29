@@ -54,6 +54,7 @@ function displayData({ author, title, titleShort, publisher, issued, accessed, U
 	if (accessed) string += `Web ${accessed}. `;
 	if (URL) string += `\n<${URL}>`;
 	data.value = string;
+	resizeTextarea();
 }
 
 /*
@@ -93,3 +94,10 @@ document.getElementById("copy").addEventListener("click", () => {
 	let copyArea = document.getElementById("citation");
 	navigator.clipboard.writeText(copyArea.value);
 });
+
+// Increasing the textarea height
+function resizeTextarea() {
+	const textarea = document.getElementById("citation");
+	textarea.style.height = "10px";
+	textarea.style.height = `${textarea.scrollHeight + 10}px`;
+}
