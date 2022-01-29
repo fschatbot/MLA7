@@ -6,9 +6,13 @@
 function fetchData(url) {
 	// API URL Usage: https://autocite.citation-api.com/api/v3/query?url={URL}
 	return fetch("https://autocite.citation-api.com/api/v3/query?url=" + url)
-		.then((response) => response.json())
+		.then((response) => {
+			if (response.status == 200) return response.json();
+			else throw new Error("Bad API response! Status: " + response.status);
+		})
 		.then(JSONTOMLA7)
-		.then(displayData);
+		.then(displayData)
+		.catch((error) => ShowText(error.message));
 }
 
 /*
@@ -41,7 +45,6 @@ function JSONTOMLA7(data) {
  * @return {void}
  */
 function displayData({ author, title, titleShort, publisher, issued, accessed, URL }) {
-	let data = document.getElementById("citation");
 	issued = dateToString(issued);
 	accessed = dateToString(accessed);
 	let string = "";
@@ -53,8 +56,7 @@ function displayData({ author, title, titleShort, publisher, issued, accessed, U
 	if (issued) string += `${issued}. `;
 	if (accessed) string += `Web ${accessed}. `;
 	if (URL) string += `\n<${URL}>`;
-	data.value = string;
-	resizeTextarea();
+	ShowText(string);
 }
 
 /*
@@ -71,6 +73,16 @@ function dateToString(date) {
 		day = date[2];
 	let months = ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"];
 	return `${day} ${months[Number(month) - 1]}. ${year}`;
+}
+
+/*
+ * This function simply displays the given text in the DOM
+ * @param {string} text
+ * @return {void}
+ */
+function ShowText(text) {
+	document.getElementById("citation").value = text;
+	resizeTextarea();
 }
 
 /*
@@ -95,7 +107,10 @@ document.getElementById("copy").addEventListener("click", () => {
 	navigator.clipboard.writeText(copyArea.value);
 });
 
-// Increasing the textarea height
+/*
+ * This function increases the textarea height based on the content
+ * @return {void}
+ */
 function resizeTextarea() {
 	const textarea = document.getElementById("citation");
 	textarea.style.height = "10px";
