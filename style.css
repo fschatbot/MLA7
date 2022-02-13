@@ -46,3 +46,21 @@ div.copy-container {
 .header {
 	@apply flex;
 }
+
+#previous-citation h2 {
+	@apply text-xl font-medium;
+}
+.citation {
+	@apply border py-2 px-4 cursor-pointer;
+}
+.citation + .citation {
+	@apply border-t-0;
+}
+
+.citation:first-of-type {
+	@apply rounded-t-lg;
+}
+
+.citation:last-of-type {
+	@apply rounded-b-lg;
+}

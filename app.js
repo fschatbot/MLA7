@@ -139,6 +139,8 @@ function resizeTextarea() {
 let citations = JSON.parse(localStorage.getItem("citations")) || [];
 citations.forEach((citation) => {
 	let div = document.createElement("div");
+	div.classList.add("citation");
 	div.textContent = DataToCitation(citation);
 	document.getElementById("previous-citation").appendChild(div);
+	div.addEventListener("click", () => navigator.clipboard.writeText(div.textContent));
 });
