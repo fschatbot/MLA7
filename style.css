@@ -38,3 +38,11 @@ div.copy-container {
 #copy {
 	@apply rounded-md max-w-max;
 }
+
+.logo {
+	@apply w-10 h-10 mr-5;
+}
+
+.header {
+	@apply flex;
+}
