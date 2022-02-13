@@ -111,7 +111,7 @@ function ShowText(text) {
  */
 function handleClick(event) {
 	const url = document.getElementById("url").value;
-	if (url.length == 0 || !url || /https?:\/\/(www.)?/.test(url)) return;
+	if (url.length == 0 || !url || !/https?:\/\/(www.)?/.test(url)) return;
 	ShowText("Loading...");
 	fetchData(url);
 }
