@@ -11,8 +11,15 @@ function fetchData(url) {
 			else throw new Error("Bad API response! Status: " + response.status);
 		})
 		.then(JSONTOMLA7)
-		.then(displayData)
-		.catch((error) => ShowText(error.message));
+		.then(DataToCitation)
+		.then(ShowText)
+		.catch((error) => {
+			console.log(error);
+			console.log(Object.keys(error));
+			console.log(error.status);
+
+			ShowText(error.status + error.message);
+		});
 }
 
 /*
@@ -30,11 +37,13 @@ function JSONTOMLA7(data) {
 		issued = csl.issued["date-parts"] ? csl.issued["date-parts"] : "",
 		accessed = csl.accessed["date-parts"] ? csl.accessed["date-parts"] : "",
 		URL = csl.URL;
-	return { author, title, titleShort, publisher, issued, accessed, URL };
+	citation_data = { author, title, titleShort, publisher, issued, accessed, URL };
+	SaveCitation(citation_data);
+	return citation_data;
 }
 
 /*
- * This functions simply displays the given data in the DOM
+ * This functions simply converts the given data to a citation string
  * @param {string} author
  * @param {string} title
  * @param {string} titleShort
@@ -44,7 +53,7 @@ function JSONTOMLA7(data) {
  * @param {string} URL
  * @return {void}
  */
-function displayData({ author, title, titleShort, publisher, issued, accessed, URL }) {
+function DataToCitation({ author, title, titleShort, publisher, issued, accessed, URL }) {
 	issued = dateToString(issued);
 	accessed = dateToString(accessed);
 	let string = "";
@@ -56,7 +65,18 @@ function displayData({ author, title, titleShort, publisher, issued, accessed, U
 	if (issued) string += `${issued}. `;
 	if (accessed) string += `Web ${accessed}. `;
 	if (URL) string += `\n<${URL}>`;
-	ShowText(string);
+	return string;
+}
+
+/*
+ * This function saves the citation in the local storage
+ * @param {object} citation
+ * @return {void}
+ */
+function SaveCitation(citation) {
+	let citations = JSON.parse(localStorage.getItem("citations")) || [];
+	citations.push(citation);
+	localStorage.setItem("citations", JSON.stringify(citations));
 }
 
 /*
@@ -118,3 +138,11 @@ function resizeTextarea() {
 	textarea.style.height = "10px";
 	textarea.style.height = `${textarea.scrollHeight + 10}px`;
 }
+
+// Add all the previous citations to a box
+let citations = JSON.parse(localStorage.getItem("citations")) || [];
+citations.forEach((citation) => {
+	let div = document.createElement("div");
+	div.textContent = DataToCitation(citation);
+	document.getElementById("previous-citation").appendChild(div);
+});
