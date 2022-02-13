@@ -39,7 +39,7 @@ function JSONTOMLA7(data) {
 		accessed = csl.accessed["date-parts"] ? csl.accessed["date-parts"] : "",
 		URL = csl.URL;
 	citation_data = { author, title, titleShort, publisher, issued, accessed, URL };
-	SaveCitation(citation_data);
+	SaveCitation({ author, title, titleShort, publisher, issued, accessed, URL });
 	return citation_data;
 }
 
@@ -75,7 +75,12 @@ function DataToCitation({ author, title, titleShort, publisher, issued, accessed
  * @return {void}
  */
 function SaveCitation(citation) {
+	citation = { ...citation };
 	let citations = JSON.parse(localStorage.getItem("citations")) || [];
+	// Convert the dates into numbers
+	// Some kind of error to be fixed here
+	// citation.issued = new Date(dateToString(citation.issued)).getTime();
+	// citation.accessed = new Date(dateToString(citation.accessed)).getTime();
 	citations.push(citation);
 	localStorage.setItem("citations", JSON.stringify(citations));
 }
@@ -86,13 +91,17 @@ function SaveCitation(citation) {
  * @return {string}
  */
 function dateToString(date) {
+	let months = ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"];
+	if (!isNaN(date) && typeof date == typeof 2) {
+		date = new Date(date);
+		return `${date.getDate()} ${months[date.getMonth()]}. ${date.getFullYear()}`;
+	}
 	if (date[0].length == 0) return "";
 	else date = date[0];
 	// The magic happens here
 	let year = date[0],
 		month = date[1],
 		day = date[2];
-	let months = ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"];
 	return `${day} ${months[Number(month) - 1]}. ${year}`;
 }
 
