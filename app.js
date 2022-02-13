@@ -142,5 +142,34 @@ citations.forEach((citation) => {
 	div.classList.add("citation");
 	div.textContent = DataToCitation(citation);
 	document.getElementById("previous-citation").appendChild(div);
-	div.addEventListener("click", () => navigator.clipboard.writeText(div.textContent));
+	div.addEventListener(
+		"click",
+		DoubleClickListner(() => {
+			navigator.clipboard.writeText(div.textContent);
+			alert("Citation Copied!");
+		})
+	);
 });
+
+// Answer from https://stackoverflow.com/a/46812691/13703806
+/*
+ * Lets you listen for double click on an element
+ * @param {function} callback This will be called when the element is double clicked
+ * @param {number} click_delay This is the maximum amount of time between clicks
+ * @return {function} This function returns the listener
+ */
+function DoubleClickListner(callback, click_delay = 300) {
+	let clicks = 0,
+		timeout;
+	return function () {
+		clicks++;
+		if (clicks === 1) {
+			// Make sure to listen for another click in 500ms
+			timeout = setTimeout(() => (clicks = 0), click_delay);
+		} else {
+			clearTimeout(timeout);
+			callback.apply(this, arguments);
+			clicks = 0;
+		}
+	};
+}
