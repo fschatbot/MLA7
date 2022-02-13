@@ -179,6 +179,8 @@ citations.forEach((citation) => {
 	*/
 });
 
+if (JSON.stringify(citations) === JSON.stringify([])) document.querySelector("#previous-citation").style.display = "none";
+
 // Answer from https://stackoverflow.com/a/46812691/13703806
 /*
  * Lets you listen for double click on an element
