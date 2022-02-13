@@ -13,11 +13,12 @@ function fetchData(url) {
 		.then(JSONTOMLA7)
 		.then(DataToCitation)
 		.then(ShowText)
+		.then(() => alert("Citation Generated!"))
 		.catch((error) => {
 			console.log(error);
 			console.log(Object.keys(error));
 			console.log(error.status);
-
+			alert("Error!\n" + error.message);
 			ShowText(error.status + error.message);
 		});
 }
