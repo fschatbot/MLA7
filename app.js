@@ -173,3 +173,27 @@ function DoubleClickListner(callback, click_delay = 300) {
 		}
 	};
 }
+
+/*
+ * This function is an replacement for the builtin alert function
+ * @param {string} text
+ * @return {void}
+ */
+function alert(string) {
+	let NotificationCont = document.getElementById("notification-container");
+	let NotificationElem = document.getElementById("Notification-Template").content.cloneNode(true);
+
+	NotificationElem.querySelector("[notification-text]").textContent = string;
+	let d = Date.now() * Math.random();
+	NotificationElem.querySelector("[notification-text]").setAttribute("_KEY_", d);
+	NotificationCont.appendChild(NotificationElem);
+	// Replace the document-fragment with proper node
+	NotificationElem = NotificationCont.querySelector(`[_KEY_="${d}"]`).parentElement;
+	NotificationElem.removeAttribute("_KEY_");
+
+	// Remove the notification after 5 seconds
+	setTimeout(() => {
+		NotificationElem.classList.add("SlideOut");
+		setTimeout(() => NotificationElem.remove(), 500);
+	}, 5000);
+}

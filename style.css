@@ -9,7 +9,7 @@ h1 {
 }
 
 body {
-	@apply flex justify-center items-center flex-col h-screen;
+	@apply flex justify-center items-center flex-col h-screen overflow-x-hidden;
 }
 
 input {
@@ -63,4 +63,33 @@ div.copy-container {
 
 .citation:last-of-type {
 	@apply rounded-b-lg;
+}
+
+/* CSS For the notfication */
+
+.NotiCont {
+	@apply absolute bottom-0 right-0 m-4;
+}
+
+.Notification {
+	@apply bg-sky-300 text-white font-bold py-2 px-4 rounded-md mt-2 transition-transform;
+	animation: SlideIn 500ms;
+}
+
+.Notification.SlideOut {
+	transition-duration: 500ms;
+	transform: translateX(110%);
+}
+
+.Notification svg {
+	@apply w-6 h-6 mr-2 inline-block;
+}
+
+@keyframes SlideIn {
+	0% {
+		transform: translateX(100%);
+	}
+	100% {
+		transform: translateX(0%);
+	}
 }
