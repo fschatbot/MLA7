@@ -23,7 +23,8 @@ textarea {
 	outline-none bg-white hover:scale-105 transition-transform focus:scale-90 origin-bottom;
 }
 
-button {
+.input-container button,
+.copy-container button {
 	@apply bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded-r-lg inline-block;
 }
 
@@ -51,7 +52,8 @@ div.copy-container {
 	@apply text-xl font-medium;
 }
 .citation {
-	@apply border py-2 px-4 cursor-pointer;
+	@apply border cursor-pointer
+	flex flex-row justify-between;
 }
 .citation + .citation {
 	@apply border-t-0;
@@ -63,6 +65,12 @@ div.copy-container {
 
 .citation:last-of-type {
 	@apply rounded-b-lg;
+}
+.citation span {
+	@apply py-2 px-4 w-full;
+}
+.citation button {
+	@apply text-red-500 px-2 hover:scale-125 transition-transform;
 }
 
 /* CSS For the notfication */
@@ -81,8 +89,12 @@ div.copy-container {
 	transform: translateX(110%);
 }
 
+svg {
+	@apply w-6 h-6 inline-block;
+}
+
 .Notification svg {
-	@apply w-6 h-6 mr-2 inline-block;
+	@apply mr-2;
 }
 
 @keyframes SlideIn {

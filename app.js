@@ -139,17 +139,44 @@ function resizeTextarea() {
 // Add all the previous citations to a box
 let citations = JSON.parse(localStorage.getItem("citations")) || [];
 citations.forEach((citation) => {
+	// Creating Elements
 	let div = document.createElement("div");
+	let span = document.createElement("span");
+	let button = document.createElement("button");
+	// Adding Classes and Attributes
 	div.classList.add("citation");
-	div.textContent = DataToCitation(citation);
+	button.classList.add("delete");
+	span.innerText = DataToCitation(citation);
+	// Heroicons: trash-outline
+	button.innerHTML = `<svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 7l-.867 12.142A2 2 0 0116.138 21H7.862a2 2 0 01-1.995-1.858L5 7m5 4v6m4-6v6m1-10V4a1 1 0 00-1-1h-4a1 1 0 00-1 1v3M4 7h16" /></svg>`;
+	// Appending Elements
+	div.appendChild(span);
+	div.appendChild(button);
 	document.getElementById("previous-citation").appendChild(div);
-	div.addEventListener(
+	// Adding Eevent Listener
+	span.addEventListener(
 		"click",
 		DoubleClickListner(() => {
 			navigator.clipboard.writeText(div.textContent);
 			alert("Citation Copied!");
 		})
 	);
+	button.addEventListener("click", () => {
+		let index = citations.indexOf(citation);
+		citations.splice(index, 1);
+		localStorage.setItem("citations", JSON.stringify(citations));
+		div.remove();
+	});
+
+	// Final Structure
+	/*
+	<div class="citation" event={copy}>
+		<span> ${text} </span>
+		<button class="delete" event={delete citation}>
+			<svg class="icon" viewBox="0 0 24 24">...</svg>
+		</button>
+	</div>
+	*/
 });
 
 // Answer from https://stackoverflow.com/a/46812691/13703806
