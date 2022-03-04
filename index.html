@@ -7,20 +7,46 @@
 		<meta name="viewport" content="width=device-width, initial-scale=1" />
 		<link rel="stylesheet" type="text/css" media="screen" href="output.css" />
 		<script defer src="app.js"></script>
+
+		<!-- FAVIOCNS; Icons that display for the site -->
+		<!-- Favicon Generated from brandcrowd.com -->
+		<!-- Code and Favicon conversion using realfavicongenerator.net -->
+
+		<link rel="apple-touch-icon" sizes="180x180" href="assets/favicons/apple-touch-icon.png" />
+		<link rel="icon" type="image/png" sizes="32x32" href="assets/favicons/favicon-32x32.png" />
+		<link rel="icon" type="image/png" sizes="16x16" href="assets/favicons/favicon-16x16.png" />
+		<link rel="manifest" href="assets/favicons/site.webmanifest" />
+		<link rel="mask-icon" href="assets/favicons/safari-pinned-tab.svg" color="#5bbad5" />
+		<link rel="shortcut icon" href="assets/favicons/favicon.ico" />
+		<meta name="msapplication-config" content="assets/favicons/browserconfig.xml" />
+		<meta name="theme-color" content="#ffffff" />
 	</head>
 	<body>
-		<h1>MLA7 Citation Genderator</h1>
+		<div class="header">
+			<img src="favicon2.png" alt="logo" class="logo" />
+			<h1>MLA7 Citation Genderator</h1>
+		</div>
 		<div class="input-container">
-			<input
-				placeholder="Enter your site url"
-				id="url"
-				value="https://www.cuemath.com/geometry/cyclic-quadrilaterals/"
-			/>
+			<input placeholder="Enter your site url" id="url" value="https://www.cuemath.com/geometry/cyclic-quadrilaterals/" />
 			<button id="btn">Cite</button>
 		</div>
 		<div class="copy-container">
 			<textarea id="citation" disabled>Text Will be Generated Here</textarea>
 			<button id="copy">Copy</button>
+		</div>
+		<div id="previous-citation">
+			<h2>Previous Citations: <sub>(double click to copy)</sub></h2>
+		</div>
+
+		<div id="notification-container" class="NotiCont">
+			<template id="Notification-Template">
+				<div class="Notification">
+					<svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+						<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
+					</svg>
+					<span Notification-text> </span>
+				</div>
+			</template>
 		</div>
 	</body>
 </html>

@@ -23,7 +23,8 @@ textarea {
 	outline-none bg-white hover:scale-105 transition-transform focus:scale-90 origin-bottom;
 }
 
-button {
+.input-container button,
+.copy-container button {
 	@apply bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded-r-lg inline-block;
 }
 
@@ -37,4 +38,70 @@ div.copy-container {
 
 #copy {
 	@apply rounded-md max-w-max;
+}
+
+.logo {
+	@apply w-10 h-10 mr-5;
+}
+
+.header {
+	@apply flex;
+}
+
+#previous-citation h2 {
+	@apply text-xl font-medium;
+}
+.citation {
+	@apply border cursor-pointer
+	flex flex-row justify-between;
+}
+.citation + .citation {
+	@apply border-t-0;
+}
+
+.citation:first-of-type {
+	@apply rounded-t-lg;
+}
+
+.citation:last-of-type {
+	@apply rounded-b-lg;
+}
+.citation span {
+	@apply py-2 px-4 w-full;
+}
+.citation button {
+	@apply text-red-500 px-2 hover:scale-125 transition-transform;
+}
+
+/* CSS For the notfication */
+
+.NotiCont {
+	@apply absolute bottom-0 right-0 m-4;
+}
+
+.Notification {
+	@apply bg-sky-300 text-white font-bold py-2 px-4 rounded-md mt-2 transition-transform;
+	animation: SlideIn 500ms;
+}
+
+.Notification.SlideOut {
+	transition-duration: 500ms;
+	transform: translateX(110%);
+}
+
+svg {
+	@apply w-6 h-6 inline-block;
+}
+
+.Notification svg {
+	@apply mr-2;
+}
+
+@keyframes SlideIn {
+	0% {
+		transform: translateX(100%);
+	}
+	100% {
+		transform: translateX(0%);
+	}
 }
