@@ -50,18 +50,31 @@ div.copy-container {
 	md:flex-row md:items-baseline;
 }
 
-#previous-citation h2 {
-	@apply text-xl font-medium;
+#title h2 {
+	@apply text-xl font-bold;
 }
+
+#title p {
+	@apply text-sm md:text-xs text-gray-800 font-medium;
+}
+
+#title {
+	@apply w-full flex flex-col md:flex-row items-center md:items-baseline;
+}
+
+#previous-citation {
+	@apply max-w-[92%] md:max-w-[60%];
+}
+
 .citation {
-	@apply border cursor-pointer
+	@apply border cursor-pointer text-sm md:text-base
 	flex flex-row justify-between;
 }
 .citation + .citation {
 	@apply border-t-0;
 }
 
-.citation:first-of-type {
+div.citation:nth-of-type(2) {
 	@apply rounded-t-lg;
 }
 
