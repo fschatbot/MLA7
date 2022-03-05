@@ -5,7 +5,7 @@
 
 h1 {
 	font-family: "Bebas Neue", cursive;
-	@apply text-5xl font-bold mb-5 tracking-wide;
+	@apply text-4xl md:text-5xl font-bold mb-5 tracking-wide;
 }
 
 body {
@@ -19,7 +19,7 @@ input {
 
 textarea {
 	font-family: "Rubik", sans-serif;
-	@apply border-2 rounded-xl resize-none w-full mb-2 px-4 py-2 text-base shadow-lg min-h-[1rem] overflow-y-hidden
+	@apply border-2 rounded-xl resize-none w-full mb-2 px-4 py-2 text-sm md:text-base shadow-lg min-h-[1rem] overflow-y-hidden
 	outline-none bg-white hover:scale-105 transition-transform focus:scale-90 origin-bottom;
 }
 
@@ -29,11 +29,11 @@ textarea {
 }
 
 div.input-container {
-	@apply w-7/12 flex justify-center mb-5;
+	@apply w-11/12 md:w-7/12 flex justify-center mb-5;
 }
 
 div.copy-container {
-	@apply mx-auto w-7/12 flex justify-center flex-col mb-5;
+	@apply mx-auto w-11/12 md:w-7/12 flex justify-center flex-col mb-5;
 }
 
 #copy {
@@ -41,11 +41,13 @@ div.copy-container {
 }
 
 .logo {
-	@apply w-10 h-10 mr-5;
+	@apply w-20 h-20 my-5
+	md:w-10 md:h-10 md:mr-5;
 }
 
 .header {
-	@apply flex;
+	@apply flex flex-col items-center
+	md:flex-row md:items-baseline;
 }
 
 #previous-citation h2 {
