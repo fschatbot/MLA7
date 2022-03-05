@@ -14,7 +14,7 @@ body {
 
 input {
 	font-family: "Nunito", sans-serif;
-	@apply border-2 border-r-0 rounded-l-lg py-2 px-4 w-8/12 inline-block outline-none;
+	@apply border-2 border-r-0 rounded-l-lg py-2 px-4 w-full inline-block outline-none;
 }
 
 textarea {
@@ -29,7 +29,7 @@ textarea {
 }
 
 div.input-container {
-	@apply w-full flex justify-center mb-5;
+	@apply w-7/12 flex justify-center mb-5;
 }
 
 div.copy-container {
