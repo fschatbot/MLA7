@@ -20,22 +20,14 @@
 		<link rel="shortcut icon" href="assets/favicons/favicon.ico" />
 		<meta name="msapplication-config" content="assets/favicons/browserconfig.xml" />
 		<meta name="theme-color" content="#ffffff" />
+		<meta name="robots" content="index, follow" />
 
-		<meta
-			name="description"
-			content="Want quick MLA7? Well look no further. Just enter your url and get citation. Ad free, high speed, super customizable."
-		/>
-		<meta
-			property="og:description"
-			content="Want quick MLA7? Well look no further. Just enter your url and get citation. Ad free, high speed, super customizable."
-		/>
+		<meta name="description" content="Want quick MLA7? Well look no further. Just enter your url and get citation. Ad free, high speed, super customizable." />
+		<meta property="og:description" content="Want quick MLA7? Well look no further. Just enter your url and get citation. Ad free, high speed, super customizable." />
 
 		<link rel="preconnect" href="https://fonts.googleapis.com" />
 		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-		<link
-			href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Nunito&family=Rubik&display=swap"
-			rel="stylesheet"
-		/>
+		<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Nunito&family=Rubik&display=swap" rel="stylesheet" />
 	</head>
 	<body>
 		<div class="header">
@@ -43,11 +35,7 @@
 			<h1>MLA7 Citation Genderator</h1>
 		</div>
 		<div class="input-container">
-			<input
-				placeholder="Enter your site url"
-				id="url"
-				value="https://www.cuemath.com/geometry/cyclic-quadrilaterals/"
-			/>
+			<input placeholder="Enter your site url" id="url" value="https://www.cuemath.com/geometry/cyclic-quadrilaterals/" />
 			<button id="btn">Cite</button>
 		</div>
 		<div class="copy-container">
@@ -64,18 +52,8 @@
 		<div id="notification-container" class="NotiCont">
 			<template id="Notification-Template">
 				<div class="Notification">
-					<svg
-						xmlns="http://www.w3.org/2000/svg"
-						fill="none"
-						viewBox="0 0 24 24"
-						stroke="currentColor"
-					>
-						<path
-							stroke-linecap="round"
-							stroke-linejoin="round"
-							stroke-width="2"
-							d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"
-						/>
+					<svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+						<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
 					</svg>
 					<span Notification-text> </span>
 				</div>
