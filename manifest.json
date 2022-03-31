@@ -1,0 +1,78 @@
+{
+	"short_name": "MLA7 Citation",
+	"name": "MLA7 Ciation Generator",
+	"icons": [
+		{
+			"src": "/assets/favicon2.png",
+			"type": "image/png",
+			"sizes": "1024x1024"
+		},
+		{
+			"src": "/assets/favicons/android-chrome-192x192.png",
+			"type": "image/png",
+			"sizes": "192x192"
+		},
+		{
+			"src": "/assets/favicons/andriod-chrome-512x512.png",
+			"type": "image/png",
+			"sizes": "512x512"
+		},
+		{
+			"src": "/assets/favicons/apple-touch-icon-60x60.png",
+			"type": "image/png",
+			"sizes": "60x60"
+		},
+		{
+			"src": "/assets/favicons/apple-touch-icon-120x120.png",
+			"type": "image/png",
+			"sizes": "120x120"
+		},
+		{
+			"src": "/assets/favicons/apple-touch-icon-152x152.png",
+			"type": "image/png",
+			"sizes": "152x152"
+		},
+		{
+			"src": "/assets/favicons/apple-touch-icon-180x180.png",
+			"type": "image/png",
+			"sizes": "180x180"
+		},
+		{
+			"src": "/assets/favicons/aooke-touch-icon.png",
+			"type": "image/png",
+			"sizes": "180x180"
+		},
+		{
+			"src": "/assets/favicons/favicon-16x16.png",
+			"type": "image/png",
+			"sizes": "16x16"
+		},
+		{
+			"src": "/assets/favicons/favicon-32x32.png",
+			"type": "image/png",
+			"sizes": "32x32"
+		},
+		{
+			"src": "/assets/favicons/mstile-150x150.png",
+			"type": "image/png",
+			"sizes": "150x150"
+		},
+		{
+			"src": "/assets/favicons/favicon.ico",
+			"type": "image/png",
+			"sizes": "32x32"
+		},
+		{
+			"src": "/assets/favicons/safari-pinned-tab.svg",
+			"type": "image/png",
+			"sizes": "1024x1024"
+		}
+	],
+	"start_url": "/MLA7/",
+	"background_color": "#ffffff",
+	"display": "standalone",
+	"scope": "/MLA7/",
+	"theme_color": "#3B82F6",
+	"description": "Want quick MLA7? Well look no further. Just enter your url and get citation. Ad free, high speed, super customizable.",
+	"lang": "en-US"
+}
