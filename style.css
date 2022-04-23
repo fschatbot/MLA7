@@ -81,7 +81,7 @@ div.citation:nth-of-type(2) {
 	@apply rounded-b-lg;
 }
 .citation span {
-	@apply py-2 px-4 w-full overflow-scroll;
+	@apply py-2 px-4 w-full overflow-auto;
 }
 .citation button {
 	@apply text-red-500 px-2 hover:scale-125 transition-transform;
