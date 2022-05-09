@@ -13,6 +13,7 @@ function fetchData(url) {
 		.then(JSONTOMLA7)
 		.then(DataToCitation)
 		.then(ShowText)
+		.then(() => (document.getElementById("copy").style.width = "100%"))
 		.then(() => alert("Citation Generated!"))
 		.catch((error) => {
 			console.log(error);
@@ -123,6 +124,7 @@ function handleClick(event) {
 	const url = document.getElementById("url").value;
 	if (url.length == 0 || !url || !/https?:\/\/(www.)?/.test(url)) return;
 	ShowText("Loading...");
+	document.getElementById("copy").style.width = "100px";
 	fetchData(url);
 }
 
@@ -133,6 +135,7 @@ document.getElementById("copy").addEventListener("click", () => {
     document.execCommand('copy'); */
 	let copyArea = document.getElementById("citation");
 	navigator.clipboard.writeText(copyArea.value);
+	document.getElementById("copy").style.width = "100px";
 });
 
 /*
