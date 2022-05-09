@@ -27,5 +27,6 @@ Again because i use [citationmachine](http://citationmachine.net/) to generate m
 ### TODO
 
 - [x] Make the CSS be compatibile with Mobile Phones
-- [ ] Add a configuration option to change how the MLA7 is generated
 - [x] Add a dark mode
+- [ ] Add a configuration option to change how the MLA7 is generated
+- [ ] Add mulitple different citation APIs incase of failure
