@@ -28,4 +28,4 @@ Again because i use [citationmachine](http://citationmachine.net/) to generate m
 
 - [x] Make the CSS be compatibile with Mobile Phones
 - [ ] Add a configuration option to change how the MLA7 is generated
-- [ ] Add a dark mode
+- [x] Add a dark mode
