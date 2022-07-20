@@ -127,3 +127,13 @@ svg {
 		transform: translateX(0%);
 	}
 }
+
+/* Signature */
+
+a.signature {
+	@apply fixed bottom-3 left-3 hidden md:block cursor-pointer;
+}
+
+a.signature > span {
+	@apply underline underline-offset-2 decoration-sky-500 decoration-2;
+}
