@@ -130,10 +130,15 @@ svg {
 
 /* Signature */
 
-a.signature {
-	@apply fixed bottom-3 left-3 hidden md:block cursor-pointer;
+a[signature] {
+	@apply flex items-center gap-1
+		absolute bottom-4 left-4 text-white py-2.5 px-5
+		bg-white/10 border border-white/20 rounded-md backdrop-blur no-underline
+		hover:bg-white/20 hover:border-white/30;
+	box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+	transition: background-color 500ms, border-color 500ms;
 }
 
-a.signature > span {
-	@apply underline underline-offset-2 decoration-sky-500 decoration-2;
+a[signature] svg {
+	@apply w-5 h-5;
 }
