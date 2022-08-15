@@ -132,7 +132,7 @@ svg {
 
 a[signature] {
 	@apply flex items-center gap-1
-		absolute bottom-4 left-4 text-white py-2.5 px-5
+		fixed bottom-4 left-4 text-white py-2.5 px-5
 		bg-white/10 border border-white/20 rounded-md backdrop-blur no-underline
 		hover:bg-white/20 hover:border-white/30;
 	box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
