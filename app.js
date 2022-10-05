@@ -13,6 +13,7 @@ function fetchData(url) {
 		.then(JSONTOMLA7)
 		.then(DataToCitation)
 		.then(ShowText)
+		.then(updateCitations)
 		.then(() => (document.getElementById("copy").style.width = "100%"))
 		.then(() => alert("Citation Generated!"))
 		.catch((error) => {
@@ -148,40 +149,45 @@ function resizeTextarea() {
 	textarea.style.height = `${textarea.scrollHeight + 10}px`;
 }
 
-// Add all the previous citations to a box
-let citations = JSON.parse(localStorage.getItem("citations")) || [];
-citations.forEach((citation) => {
-	// Creating Elements
-	let div = document.createElement("div");
-	let span = document.createElement("span");
-	let button = document.createElement("button");
-	// Adding Classes and Attributes
-	div.classList.add("citation");
-	button.classList.add("delete");
-	span.innerText = DataToCitation(citation);
-	// Heroicons: trash-outline
-	button.innerHTML = `<svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 7l-.867 12.142A2 2 0 0116.138 21H7.862a2 2 0 01-1.995-1.858L5 7m5 4v6m4-6v6m1-10V4a1 1 0 00-1-1h-4a1 1 0 00-1 1v3M4 7h16" /></svg>`;
-	// Appending Elements
-	div.appendChild(span);
-	div.appendChild(button);
-	document.getElementById("previous-citation").appendChild(div);
-	// Adding Eevent Listener
-	span.addEventListener(
-		"click",
-		DoubleClickListner(() => {
-			navigator.clipboard.writeText(div.textContent);
-			alert("Citation Copied!");
-		})
-	);
-	button.addEventListener("click", () => {
-		let index = citations.indexOf(citation);
-		citations.splice(index, 1);
-		localStorage.setItem("citations", JSON.stringify(citations));
-		div.remove();
-	});
+function updateCitations() {
+	console.trace("Updating Citations!!");
+	// Add all the previous citations to a box
+	let prev_citations = document.getElementById("previous-citation");
+	prev_citations.querySelectorAll(".citation").forEach((a) => a.remove()); // removes all the previous citation containers
+	let citations = JSON.parse(localStorage.getItem("citations")) || [];
+	citations.forEach((citation) => {
+		// Creating Elements
+		let div = document.createElement("div");
+		let span = document.createElement("span");
+		let button = document.createElement("button");
+		// Adding Classes and Attributes
+		div.classList.add("citation");
+		button.classList.add("delete");
+		span.innerText = DataToCitation(citation);
+		// Heroicons: trash-outline
+		button.innerHTML = `<svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 7l-.867 12.142A2 2 0 0116.138 21H7.862a2 2 0 01-1.995-1.858L5 7m5 4v6m4-6v6m1-10V4a1 1 0 00-1-1h-4a1 1 0 00-1 1v3M4 7h16" /></svg>`;
+		// Appending Elements
+		div.appendChild(span);
+		div.appendChild(button);
+		prev_citations.appendChild(div);
 
-	// Final Structure
-	/*
+		// Adding Eevent Listener
+		span.addEventListener(
+			"click",
+			DoubleClickListner(() => {
+				navigator.clipboard.writeText(div.textContent);
+				alert("Citation Copied!");
+			})
+		);
+		button.addEventListener("click", () => {
+			let index = citations.indexOf(citation);
+			citations.splice(index, 1);
+			localStorage.setItem("citations", JSON.stringify(citations));
+			updateCitations();
+		});
+
+		// Final Structure
+		/*
 	<div class="citation" event={copy}>
 		<span> ${text} </span>
 		<button class="delete" event={delete citation}>
@@ -189,10 +195,11 @@ citations.forEach((citation) => {
 		</button>
 	</div>
 	*/
-});
+	});
 
-if (JSON.stringify(citations) === JSON.stringify([])) document.querySelector("#previous-citation").style.display = "none";
-
+	if (JSON.stringify(citations) === JSON.stringify([])) prev_citations.style.display = "none";
+	else prev_citations.style.display = "";
+}
 // Answer from https://stackoverflow.com/a/46812691/13703806
 /*
  * Lets you listen for double click on an element
@@ -239,3 +246,5 @@ function alert(string) {
 		setTimeout(() => NotificationElem.remove(), 500);
 	}, 5000);
 }
+
+updateCitations();
