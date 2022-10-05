@@ -9,29 +9,26 @@ h1 {
 
 body {
 	@apply flex justify-center items-center flex-col min-h-screen overflow-x-hidden
-	dark:bg-slate-800 dark:text-white dark:bg-opacity-75;
+	dark:bg-dark_bg dark:text-dark_text;
 }
 
 input {
 	font-family: "Nunito", sans-serif;
 	@apply border-2 border-r-0 rounded-l-lg py-2 px-4 w-full inline-block outline-none
-	dark:bg-transparent dark:border-slate-700 dark:border-opacity-75;
-}
-
-#btn:hover + input {
-	@apply border-blue-500;
+	dark:bg-transparent dark:border-dark_border dark:border-opacity-75;
 }
 
 textarea {
 	font-family: "Rubik", sans-serif;
 	@apply border-2 rounded-xl resize-none w-full mb-2 px-4 py-2 text-sm md:text-base shadow-lg min-h-[1rem] overflow-y-hidden
 	outline-none bg-white hover:scale-105 transition-transform focus:scale-90 origin-bottom
-	dark:bg-transparent dark:shadow-slate-700 dark:border-slate-700 dark:border-opacity-75;
+	dark:bg-transparent dark:shadow-dark_border dark:border-dark_border dark:border-opacity-75;
 }
 
 .input-container button,
 .copy-container button {
-	@apply bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded-r-lg inline-block;
+	@apply bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded-r-lg inline-block transition-colors
+	dark:bg-dark_btn dark:hover:bg-dark_btn_hover;
 }
 
 div.input-container {
@@ -43,7 +40,7 @@ div.copy-container {
 }
 
 #copy {
-	@apply rounded-md mx-auto transition-[width] duration-1000 w-[100px];
+	@apply rounded-md mx-auto transition-[width] duration-700 w-[100px];
 }
 
 .logo {
