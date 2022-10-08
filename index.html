@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8" />
+		<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+		<title>Simple MLA7 Generator</title>
+		<meta name="viewport" content="width=device-width, initial-scale=1" />
+
+		<!-- FAVIOCNS; Icons that display for the site -->
+		<!-- Favicon Generated from brandcrowd.com -->
+		<!-- Code and Favicon conversion using realfavicongenerator.net -->
+
+		<link rel="apple-touch-icon" sizes="180x180" href="assets/favicons/apple-touch-icon.png" />
+		<link rel="icon" type="image/png" sizes="32x32" href="assets/favicons/favicon-32x32.png" />
+		<link rel="icon" type="image/png" sizes="16x16" href="assets/favicons/favicon-16x16.png" />
+		<link rel="manifest" href="assets/favicons/site.webmanifest" />
+		<link rel="mask-icon" href="assets/favicons/safari-pinned-tab.svg" color="#5bbad5" />
+		<link rel="shortcut icon" href="assets/favicons/favicon.ico" />
+		<meta name="msapplication-config" content="assets/favicons/browserconfig.xml" />
+		<meta name="theme-color" content="#ffffff" />
+		<meta name="robots" content="index, follow" />
+		<meta name="googlebot" content="index, follow" />
+
+		<!-- Meta Data -->
+		<meta property="og:type" content="website" />
+		<meta property="og:url" content="https://fschatbot.github.io/MLA7/" />
+		<meta name="description" content="Want quick MLA7? Well look no further. Just enter your url and get citation. Ad free, high speed, super customizable." />
+		<meta property="og:description" content="Want quick MLA7? Well look no further. Just enter your url and get citation. Ad free, high speed, super customizable." />
+		<meta http-equiv="X-UA-Compatible" content="ie=edge" />
+		<meta http-equiv="content-language" content="en-us" />
+		<meta name="twitter:card" content="summary" />
+
+		<link rel="preconnect" href="https://fonts.googleapis.com" />
+		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+
+		<!-- CSS and JS -->
+		<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Nunito&family=Rubik&display=swap" rel="stylesheet" />
+		<link rel="stylesheet" type="text/css" media="screen" href="output.css" />
+		<script defer src="app.js"></script>
+		<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-9346448941284407" crossorigin="anonymous"></script>
+
+		<!-- Google tag (gtag.js) -->
+		<script async src="https://www.googletagmanager.com/gtag/js?id=G-F29GF5X08P"></script>
+		<script>
+			window.dataLayer = window.dataLayer || [];
+			function gtag() {
+				dataLayer.push(arguments);
+			}
+			gtag("js", new Date());
+
+			gtag("config", "G-F29GF5X08P");
+		</script>
+
+		<script type="application/ld+json">
+			{
+				"@context": "https://schema.org",
+				"@type": "WebSite",
+				"name": "Simple MLA7 Generator",
+				"headline": "MLA7 Generator",
+				"description": "Want quick MLA7? Well look no further. Just enter your url and get citation. Ad free, high speed, super customizable.",
+				"inLanguage": "en-us",
+				"isFamilyFriendly": "true",
+				"mainEntityOfPage": {
+					"@type": "WebPage",
+					"@id": "https:\/\/fschatbot.github.io\/MLA7"
+				},
+				"url": "https://fschatbot.github.io/MLA7/",
+				"potentialAction": {
+					"@type": "SearchAction",
+					"target": "https://fschatbot.github.io/MLA7/?url={search_term_string}",
+					"query-input": "required name=search_term_string"
+				},
+				"keywords": ["MLA7", "MLA7 Citation Generator", "Add Free", "Fast", "Customizable"],
+				"author": {
+					"@type": "Person",
+					"name": "FSChatbot"
+				},
+				"image": "https://fschatbot.github.io/MLA7/assets/favicon2.png"
+			}
+		</script>
+		<link rel="manifest" href="manifest.json" />
+	</head>
+	<body>
+		<div class="header">
+			<img src="assets/favicon2.png" alt="logo" class="logo" />
+			<h1>MLA7 Citation Generator</h1>
+		</div>
+		<div class="input-container">
+			<input placeholder="Enter your site url" id="url" value="https://www.cuemath.com/geometry/cyclic-quadrilaterals/" />
+			<button id="btn">Cite</button>
+		</div>
+		<div class="copy-container">
+			<textarea id="citation" disabled>MLA7 will be generated here</textarea>
+			<button id="copy">Copy</button>
+		</div>
+		<div id="previous-citation">
+			<div id="title">
+				<h2>Previous Citations:</h2>
+				<p>(double click to copy)</p>
+			</div>
+		</div>
+
+		<div id="notification-container" class="NotiCont">
+			<template id="Notification-Template">
+				<div class="Notification">
+					<svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+						<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
+					</svg>
+					<span Notification-text> </span>
+				</div>
+			</template>
+		</div>
+
+		<a signature href="https://github.com/fschatbot" target="_blank" rel="noreferrer">
+			Made by FSChatBot
+			<svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+				<path stroke-linecap="round" stroke-linejoin="round" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" />
+			</svg>
+		</a>
+
+		<div adContainer></div>
+	</body>
+</html>
