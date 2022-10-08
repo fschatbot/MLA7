@@ -3,6 +3,7 @@
 		"tailwindcss": "^3.1.8"
 	},
 	"scripts": {
-		"build": "npx tailwindcss -i style.css -o output.css -m"
+		"build": "npx tailwindcss -i style.css -o output.css -m",
+		"build:DEV": "npx tailwindcss -i style.css -o output.css -w"
 	}
 }

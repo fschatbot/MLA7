@@ -139,3 +139,30 @@ a[signature] {
 a[signature] svg {
 	@apply w-5 h-5;
 }
+
+/* ===== Scrollbar CSS ===== */
+/* Firefox */
+* {
+	scrollbar-width: auto;
+	scrollbar-color: #d38e17 #302c2c;
+}
+
+/* Chrome, Edge, and Safari */
+*::-webkit-scrollbar {
+	@apply w-2;
+}
+
+*::-webkit-scrollbar-track {
+	@apply dark:bg-dark_bg dark:bg-opacity-75;
+}
+
+*::-webkit-scrollbar-thumb {
+	@apply bg-orange-400 shadow-inner;
+	border-radius: 10px;
+}
+
+/* Google Ad Container CSS */
+div[adContainer] {
+	@apply absolute inset-y-0 right-0 w-2/12
+	hidden md:block;
+}
